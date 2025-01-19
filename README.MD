@@ -4,21 +4,22 @@ A Chip-8 Interpreter for Arduino Mega 2560
 
 ---
 
-## Software
-
 ### Arduino Library Dependencies
-  - PinChangeInterrupt v1.2.9 - https://github.com/NicoHood/PinChangeInterrupt
+  - MCUFRIEND_kbv v3.0.0 - https://github.com/prenticedavid/MCUFRIEND_kbv ( used for the display )
+  - PinChangeInterrupt v1.2.9 - https://github.com/NicoHood/PinChangeInterrupt ( used for pcINT ) 
 
 ### Custom Library Dependencies
   - Chip8 Core - https://github.com/tommojphillips/Chip8-Core
 
-  ### Building
+### Building
  The project is built in the Arduino IDE
 
  - Git clone the repo `https://github.com/tommojphillips/Chip8-Arduino.git`
  - Git clone chip8 core `https://github.com/tommojphillips/Chip8-Core.git` into  sub folder, 'Chip8-Core' in your arduino library directory.
 
- - In the Arduino IDE, goto your library manager and search for `PinChangeInterrupt` and install it.
+ Arduino IDE Library Manager: ( Tools -> Manage Libraries... )
+ - Install `PinChangeInterrupt` library.
+ - Install `MCUFRIEND_kbv` library and it's dependencies
 
 Your arduino directory structure should look like this:
 
