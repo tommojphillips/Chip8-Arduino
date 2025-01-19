@@ -41,6 +41,6 @@ Your arduino directory structure should look like this:
  [To Do]
 
 ## Screenshots
-![IMG_0436](https://github.com/user-attachments/assets/5faf43a6-7a85-4a2d-b106-f8b56c34180f)
-![IMG_0435](https://github.com/user-attachments/assets/2e6e0471-167b-448a-aeb2-b6d01ebbe8ce)
-![IMG_0437](https://github.com/user-attachments/assets/ffc9a391-83be-4178-85b3-5d7700d8eec1)
+![IMG_0437](https://github.com/user-attachments/assets/31bc5c5e-9751-4ec2-af9e-bc3c4da11dc5)
+![IMG_0435](https://github.com/user-attachments/assets/29143707-4e09-4c73-a924-41ef2aa24f95)
+![IMG_0436](https://github.com/user-attachments/assets/a47b8223-9503-4932-98e4-ec71e8dddab0)
