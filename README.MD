@@ -16,6 +16,7 @@ A Chip-8 Interpreter for Arduino Mega 2560
 
  - Git clone the repo `https://github.com/tommojphillips/Chip8-Arduino.git`
  - Git clone chip8 core `https://github.com/tommojphillips/Chip8-Core.git` into  sub folder, 'Chip8-Core' in your arduino library directory.
+  - Goto Chip8-Core/chip8_defines.h and ensure `CHIP8_SHRINK_VIDEO_RAM` is not commented out! otherwise you will run out of ram when compiling.
 
  Arduino IDE Library Manager: ( Tools -> Manage Libraries... )
  - Install `PinChangeInterrupt` library.
