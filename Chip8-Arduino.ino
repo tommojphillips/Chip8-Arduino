@@ -41,6 +41,7 @@ void chip8_init() {
   /* Set Chip8 CPU quirks */
   chip8.quirks |= CHIP8_QUIRK_CLS_ON_RESET; 
   chip8.quirks |= CHIP8_QUIRK_DISPLAY_CLIPPING; 
+  chip8.quirks |= CHIP8_QUIRK_DISPLAY_WAIT; 
   chip8.quirks |= CHIP8_QUIRK_ZERO_VF_REGISTER; 
   chip8.quirks |=  CHIP8_QUIRK_SHIFT_X_REGISTER; 
   //chip8.quirks |= CHIP8_QUIRK_INCREMENT_I_REGISTER;
@@ -53,7 +54,8 @@ void chip8_update() {
 
   if (chip8.cpu_state == CHIP8_STATE_EXE) {
     uint16_t instr_count = 0;
-     while (++instr_count < CFG_INSTRS_PER_FRAME) {
+     while (chip8.draw_display == 0 && instr_count < CFG_INSTRS_PER_FRAME) {
+        instr_count++;
         chip8_execute(&chip8);
       }
 
@@ -77,6 +79,7 @@ void chip8_render(CHIP8* chip8) {
       }
     }
   }
+  chip8->draw_display = 0; 
 }
 
 void chip8_beep(CHIP8* chip8) {
