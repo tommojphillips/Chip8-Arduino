@@ -1,3 +1,4 @@
+
 ## Chip8 Interpreter
 
 A Chip-8 Interpreter for Arduino Mega 2560
@@ -14,13 +15,23 @@ A Chip-8 Interpreter for Arduino Mega 2560
 ### Building
  The project is built in the Arduino IDE
 
- - Git clone the repo `https://github.com/tommojphillips/Chip8-Arduino.git`
- - Git clone chip8 core `https://github.com/tommojphillips/Chip8-Core.git` into  sub folder, 'Chip8-Core' in your arduino library directory.
-  - Goto Chip8-Core/chip8_defines.h and ensure `CHIP8_SHRINK_VIDEO_RAM` is not commented out! otherwise you will run out of ram when building.
+ 1. Clone the repo 
 
- Arduino IDE Library Manager: ( Tools -> Manage Libraries... )
- - Install `PinChangeInterrupt` library.
- - Install `MCUFRIEND_kbv` library and it's dependencies
+```
+git clone https://github.com/tommojphillips/Chip8-Arduino.git
+```
+
+2. Clone `Chip8-Core` into your arduino library directory.
+
+```
+git clone https://github.com/tommojphillips/Chip8-Core.git
+```
+ - Goto Chip8-Core/chip8_defines.h and ensure `CHIP8_SHRINK_VIDEO_RAM` is not commented out! otherwise you will run out of ram when building.
+
+3.) Add libraries to arduino library manager
+  - Arduino IDE Library Manager: ( Tools -> Manage Libraries... )
+   - Install `PinChangeInterrupt` library.
+   - Install `MCUFRIEND_kbv` library and it's dependencies
 
 Your arduino directory structure should look like this:
 
@@ -40,7 +51,6 @@ Your arduino directory structure should look like this:
 ```
 
 ## Hardware
- [To Do]
 
 ## Screenshots
 ![IMG_0435](https://github.com/user-attachments/assets/29143707-4e09-4c73-a924-41ef2aa24f95)
