@@ -31,6 +31,8 @@ git clone https://github.com/tommojphillips/Chip8-Core.git
 3.) Add libraries to arduino library manager
   - Arduino IDE Library Manager: ( Tools -> Manage Libraries... )
    - Install `PinChangeInterrupt` library.
+   - Install `Adafruit_BusIO` library and it's dependencies
+   - Install `Adafruit_GFX_Library` library and it's dependencies
    - Install `MCUFRIEND_kbv` library and it's dependencies
 
 Your arduino directory structure should look like this:
@@ -40,12 +42,15 @@ Your arduino directory structure should look like this:
          |
          | -- Chip8\
          |
-         | -- libraries\
+         | -- libraries\             
+                        | -- Adafruit_BusIO\
+                        |
+                        | -- Adafruit_GFX_Library\
+                        |
                         | -- Chip8-Core\
-                        |               | -- chip8_defines.h
-                        |               | -- chip8.h
-                        |               | -- chip8.c
-                        |                
+                        |
+                        | -- MCUFRIEND_kbv\
+                        |
                         | -- PinChangeInterrupt\
 
 ```
