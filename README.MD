@@ -26,7 +26,7 @@ git clone https://github.com/tommojphillips/Chip8-Arduino.git
 ```
 git clone https://github.com/tommojphillips/Chip8-Core.git
 ```
- - Goto Chip8-Core/chip8_defines.h and ensure `CHIP8_SHRINK_VIDEO_RAM` is not commented out! otherwise you will run out of ram when building.
+ - You need to make an edit in a header file. Go to `Chip8-Core/src/chip8_defines.h` and ensure `CHIP8_SHRINK_VIDEO_RAM` is not commented out! otherwise you will run out of ram when building.
 
 3.) Add libraries to arduino library manager
   - Arduino IDE Library Manager: ( Tools -> Manage Libraries... )
