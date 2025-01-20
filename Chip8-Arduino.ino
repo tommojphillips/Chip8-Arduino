@@ -17,7 +17,7 @@ CHIP8 chip8;
 
 /* The LCD is not fast enough to update every pixel every frame,
  so i added a second video ram array to check which pixels need updating. Inproves performance by 100% */
-uint8_t shadow_video_ram[CHIP8_VIDEO_SIZE] = { 0 };
+uint8_t shadow_video_ram[CHIP8_DISPLAY_BYTES] = { 0 };
 
 uint8_t cpu_state = 0; // cached cpu state
 
@@ -25,7 +25,7 @@ uint8_t cpu_state = 0; // cached cpu state
 
 //#define DEBUG_PRINT
 
-#define CFG_FRAME_LIMIT
+//#define CFG_FRAME_LIMIT
 #define CFG_FRAME_TARGET 16.667f // 60 hz - 16.667 ms/frame
 
 #ifdef CFG_FRAME_LIMIT
@@ -51,7 +51,7 @@ void chip8_update() {
 
   chip8_halt_check();
 
-  if (chip8.cpu_state == CHIP8_STATE_RUN) {
+  if (chip8.cpu_state == CHIP8_STATE_EXE) {
     uint16_t instr_count = 0;
      while (++instr_count < CFG_INSTRS_PER_FRAME) {
         chip8_execute(&chip8);
@@ -64,8 +64,8 @@ void chip8_update() {
 void chip8_render(CHIP8* chip8) {
   uint8_t px;
   uint16_t col;
-  for (uint16_t i = 0; i < CHIP8_DISPLAY_PIXELS; ++i) {
-    px = CHIP8_DISPLAY_GET_PX(chip8->video, i);
+  for (uint16_t i = 0; i < CHIP8_NUM_PIXELS; ++i) {
+    px = CHIP8_DISPLAY_GET_PX(chip8->display, i);
     if (px != CHIP8_DISPLAY_GET_PX(shadow_video_ram, i)) {
       if (px) {
         tft.fillRect(DISPLAY_X(i), DISPLAY_Y(i), DISPLAY_W, DISPLAY_H, CFG_PX_ON_COL);
@@ -112,7 +112,7 @@ void loop(void) {
 void chip8_halt_check() {
   if (cpu_state != chip8.cpu_state) {
     cpu_state = chip8.cpu_state;
-    if (cpu_state == CHIP8_STATE_RUN) {
+    if (cpu_state == CHIP8_STATE_EXE) {
       digitalWrite(LED_CPU_HALT_PIN, LOW);
     }
     else {

@@ -75,22 +75,22 @@ void keypad_init(void) {
 
 void int_k1(void) {  
   uint8_t k1_state = digitalRead(KEY_1_PIN);
-  CHIP8_SET_KEYPAD(chip8.keypad, ((current_program_keys & 0xF000) >> 12), k1_state);
+  CHIP8_KEYPAD_SET(chip8.keypad, ((current_program_keys & 0xF000) >> 12), k1_state);
 }
 
 void int_k2(void) {  
   uint8_t k2_state = digitalRead(KEY_2_PIN);
-  CHIP8_SET_KEYPAD(chip8.keypad, ((current_program_keys & 0x0F00) >> 8), k2_state);
+  CHIP8_KEYPAD_SET(chip8.keypad, ((current_program_keys & 0x0F00) >> 8), k2_state);
 }
 
 void int_k3(void) {
   uint8_t k3_state = digitalRead(KEY_3_PIN);
-  CHIP8_SET_KEYPAD(chip8.keypad, ((current_program_keys & 0x00F0) >> 4), k3_state);
+  CHIP8_KEYPAD_SET(chip8.keypad, ((current_program_keys & 0x00F0) >> 4), k3_state);
 }
 
 void int_k4(void) {
   uint8_t k4_state = digitalRead(KEY_4_PIN);
-  CHIP8_SET_KEYPAD(chip8.keypad, (current_program_keys & 0x000F), k4_state);
+  CHIP8_KEYPAD_SET(chip8.keypad, (current_program_keys & 0x000F), k4_state);
 }
 
 void isr_reset(void) {
@@ -98,11 +98,11 @@ void isr_reset(void) {
 }
 
 void isr_pause(void) {
-  if (chip8.cpu_state == CHIP8_STATE_RUN) {
-    chip8.cpu_state = CHIP8_STATE_HALT;
+  if (chip8.cpu_state == CHIP8_STATE_EXE) {
+    chip8.cpu_state = CHIP8_STATE_HLT;
   }
   else {
-    chip8.cpu_state = CHIP8_STATE_RUN;
+    chip8.cpu_state = CHIP8_STATE_EXE;
   }
 }
 
